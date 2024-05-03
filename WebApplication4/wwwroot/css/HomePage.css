@@ -1,0 +1,54 @@
+﻿body {
+}
+
+.landing {
+    min-height: 100vh;
+    background-image: url("/assets/images/download.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feat {
+    background-color: antiquewhite
+}
+
+.landingp {
+    font-size: 90px;
+}
+
+.request-service {
+    min-height: 50vh;
+    background-color: #EDEDED;
+}
+
+.requestp {
+    font-size: 40px;
+}
+
+.contactp {
+    font-size: 40px;
+}
+
+.icon-holder .icon {
+    font-size: 40px;
+    color: black;
+}
+
+.contact-us {
+    min-height: 50vh;
+    background-color: #333333;
+}
+
+
+.column1 {
+    background-color: #FFFFFF;
+}
+
+.column2 {
+    background-color: #EDEDED;
+}
+
+.column3 {
+    background-color: #D6D6D6;
+}

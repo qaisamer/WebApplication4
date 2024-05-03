@@ -1,0 +1,16 @@
+﻿body {
+}
+.aboutus {
+    background-image: url("/assets/images/back.png");
+    min-height:20vh;
+}
+    .aboutus p {
+        font-size:70px;
+    }
+.landing{
+    min-height:70vh;
+}
+.assistance {
+    min-height: 30vh;
+    background-color: #EDEDED;
+}

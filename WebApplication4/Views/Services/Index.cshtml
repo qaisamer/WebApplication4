@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Services>
+@{
+    ViewData["title"] = "Services";
+}
+<link href="~/css/services.css" rel="stylesheet" />
+
+<div class="landing">
+    <div class="container">
+        <div class="service  d-flex text-light justify-content-center align-items-center mb-2">
+            <p class="text">Services</p>
+        </div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Delete / Update </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach (var s in Model)
+                        {
+                        <tr class="table-primary">
+                            <th scope="row">@s.Name</th>
+                            <td>@s.Price</td>
+                            <td>@s.Description</td>
+                            <td>
+                                <a class="btn btn-danger m-1" asp-action="DeleteService" asp-route-Id="@s.Id"><i class="bi bi-trash-fill"></i> </a>
+                                <a class="btn btn-success m-1" asp-action="UpdateService" asp-route-Id="@s.Id"><i class="bi bi-pen-fill "></i> </a>
+                            </td>
+                        </tr>
+                        }
+                </tbody>
+            </table>
+            <div class=" d-flex text-light justify-content-center align-items-center">
+                <a class="btn btn-primary" asp-action="CreatService">Add New Service</a>
+            </div>
+        </div>
+    </div>
+</div>

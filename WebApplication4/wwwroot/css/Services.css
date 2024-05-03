@@ -1,0 +1,12 @@
+﻿body {
+}
+.landing {
+    min-height: 90vh;
+}
+.service {
+    background-image: url("/assets/images/back.png");
+    min-height: 20vh;
+}
+.service p {
+    font-size: 70px;
+}

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Services>
+@{
+    ViewData["title"] = "Services";
+}
+<link href="~/css/services.css" rel="stylesheet" />
+<div class="landing">
+    <div class="service  d-flex text-light justify-content-center align-items-center mb-2">
+        <p class="text">Services</p>
+    </div>
+    <div class="container">
+        <div class=" d-flex text-light">
+@foreach (var s in Model)
+{
+ <div class="card m-2" style="width: 20rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+            <h5 class="card-title"> @s.Name </h5>  
+            <p class="card-text">  @s.Description</p>
+            <p>Price : @s.Price </p>
+    <a href="#" class="btn btn-primary">Request Service</a>
+  </div>
+</div>
+}
+        </div>
+    </div>
+</div>
+

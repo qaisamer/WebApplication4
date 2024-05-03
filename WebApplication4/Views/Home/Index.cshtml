@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/homepage.css" />
+
+<div class="landing d-flex justify-content-center align-items-center">
+    <div class=" text-center">
+        <div class="main-tilte">
+            <p class="landingp text-light "> A Mechanic You Can Trust</p>
+
+            <div class="row mt-5 justify-content-center">
+                <div class="column1 col-sm-12 col-md-12 col-lg-3">
+                    <div class="icon-holder">
+
+                        <i class="icon bi bi-tools"></i>
+                    </div>
+                    <h4 class="mb-3 bt-3 text-uppercase text-black">Experienced Mechanics </h4>
+
+                </div>
+                <div class="column2 col-sm-12 col-md-12 col-lg-3">
+                    <div class="icon-holder">
+                        <i class="icon bi bi-star-fill"></i>
+                    </div>
+                    <h4 class="mb-3 bt-3 text-uppercase text-black">Quality Service </h4>
+                </div>
+                <div class="column3 col-sm-12 col-md-12 col-lg-3">
+                    <div class="icon-holder">
+                        <i class="icon bi bi-check-lg"></i>
+                    </div>
+                    <h4 class="mb-3 bt-3 text-uppercase text-black font-bo">Affordable Prices </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="request-service d-flex justify-content-center align-items-center">
+    <div class="container text-center">
+        <p class="requestp text-black"> Fast Fixes on the Road: Your Go-To for Quick Solutions!</p>
+        <a asp-controller="Home" asp-action="Service" class="btn btn-primary fs-5 rounded-pill ">Request A Service</a>
+    </div>
+</div>
+<div class="contact-us d-flex justify-content-center align-items-center">
+    <div class="container text-center">
+        <p class="contactp text-light">Are You Intrested To Be A Service Provider! </p>
+        <button class="btn btn-primary fs-5 rounded-pill text-light ">Fill Your Information</button>
+    </div>
+</div>
+
