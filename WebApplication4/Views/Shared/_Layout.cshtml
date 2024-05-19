@@ -22,17 +22,19 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarColor01">
                     <ul class="navbar-nav me-auto p-3 ">
-                     
-                        <li class="nav-item ">
-                            <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                     @if (User.IsInRole("User"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
 
-                        <li class="nav-item ">
-                            <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Service">Services</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="About_Us">About Us</a>
-                        </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="Service">Services</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " asp-area="" asp-controller="Home" asp-action="About_Us">About Us</a>
+                            </li>
+                        }
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item ">
@@ -70,7 +72,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-3 text-center">
-                    <h2 class="text-light">Opening Hours</h2>
+                    <h2 class="text-light">Working Hours</h2>
                     <hr class="text-light" />
                     <p class="text-light fs-4">24H </p>
                 </div>

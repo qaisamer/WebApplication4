@@ -12,12 +12,12 @@
 @foreach (var s in Model)
 {
  <div class="card m-2" style="width: 20rem;">
-  <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
             <h5 class="card-title"> @s.Name </h5>  
             <p class="card-text">  @s.Description</p>
             <p>Price : @s.Price </p>
-    <a href="#" class="btn btn-primary">Request Service</a>
+
+                        <a asp-controller="Request" asp-action="RequestForm" class="btn btn-primary">Request Service</a>
   </div>
 </div>
 }

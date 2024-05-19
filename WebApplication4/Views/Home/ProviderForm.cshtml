@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["title"] = "RequestForm";
+}
+<div class="container">
+    <form>
+        <legend>Become A Provider </legend>
+        <div>
+            <label for="" class="form-label mt-4">First name</label>
+            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter your first name">
+        </div>
+        <div>
+            <label for="" class="form-label mt-4">Second name</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter your second name">
+        </div>
+        <div>
+            <label for="" class="form-label mt-4">Email address</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter Your email">
+        </div>
+        <div>
+            <label for="" class="form-label mt-4">Phone number</label>
+            <input type="text" class="form-control"  placeholder="Enter your phone number">
+            <small class="form-text text-muted">Please Enter A Valid Phone Number</small>
+        </div>
+        <div>
+            <label for="" class="form-label mt-4">Work experience</label>
+            <input type="number" class="form-control" >
+        </div>
+        <div>
+            <label for="" class="form-label mt-4">Gender</label>
+            <select class="form-select">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
