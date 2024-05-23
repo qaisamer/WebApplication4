@@ -33,6 +33,18 @@ namespace WebApplication4.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult ProviderForm(ProviderForm model )
+        {
+            if (ModelState.IsValid)
+            {
+                _context.ProviderForms.Add(model);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else 
+            return BadRequest();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

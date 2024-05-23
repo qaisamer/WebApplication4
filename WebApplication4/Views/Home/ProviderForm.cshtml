@@ -1,41 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ProviderForm
 @{
-    ViewData["title"] = "RequestForm";
+    ViewData["title"] = "ProviderForm";
 }
 <div class="container">
-    <form>
+    <form method="post" asp-action="ProviderForm">
         <legend>Become A Provider </legend>
         <div>
-            <label for="" class="form-label mt-4">First name</label>
-            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter your first name">
+            <label asp-for="FirstName" class="form-label mt-4">First name</label>
+            <input type="text" asp-for="FirstName" class="form-control" aria-describedby="emailHelp" placeholder="Enter your first name">
+            <span class="text-danger" asp-validation-for="FirstName"></span>
         </div>
         <div>
-            <label for="" class="form-label mt-4">Second name</label>
-            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter your second name">
+            <label asp-for="SecondName" class="form-label mt-4">Second name</label>
+            <input type="text" asp-for="SecondName" class="form-control" aria-describedby="emailHelp" placeholder="Enter your second name">
+            <span class="text-danger" asp-validation-for="SecondName"></span>
         </div>
         <div>
-            <label for="" class="form-label mt-4">Email address</label>
-            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter Your email">
+            <label asp-for="Email" class="form-label mt-4">Email address</label>
+            <input type="email" asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="Enter Your email">
+            <span class="text-danger" asp-validation-for="Email"></span>
         </div>
         <div>
-            <label for="" class="form-label mt-4">Phone number</label>
-            <input type="text" class="form-control"  placeholder="Enter your phone number">
+            <label asp-for="PhoneNumber" class="form-label mt-4">Phone number</label>
+            <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number">
             <small class="form-text text-muted">Please Enter A Valid Phone Number</small>
+            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
         </div>
         <div>
-            <label for="" class="form-label mt-4">Work experience</label>
-            <input type="number" class="form-control" >
-        </div>
-        <div>
-            <label for="" class="form-label mt-4">Gender</label>
-            <select class="form-select">
-                <option>Male</option>
-                <option>Female</option>
-            </select>
+            <label asp-for="WorkExp" class="form-label mt-4">Work experience</label>
+            <input type="number" asp-for="WorkExp" class="form-control">
+            <span class="text-danger" asp-validation-for="WorkExp"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -4,6 +4,8 @@ namespace WebApplication4.Models
 {
     public class ProviderForm
     {
+        [Key]
+        public int Id { get; set; }
         [Required]
         public string FirstName { get; set; } = string.Empty;
         [Required]
@@ -13,9 +15,7 @@ namespace WebApplication4.Models
         [Required]
         public string PhoneNumber { get; set; } = string.Empty;
         [Required]
-        public int WorkExp { get; set;}
-        [Required]
-        public string Gender { get; set;} = string.Empty;
-
+        public int WorkExp { get; set; }
+   
     }
 }

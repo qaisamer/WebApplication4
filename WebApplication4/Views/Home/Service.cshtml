@@ -8,9 +8,10 @@
         <p class="text">Services</p>
     </div>
     <div class="container">
-        <div class=" d-flex text-light">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
 @foreach (var s in Model)
 {
+                <div class="col"> 
  <div class="card m-2" style="width: 20rem;">
   <div class="card-body">
             <h5 class="card-title"> @s.Name </h5>  
@@ -20,6 +21,7 @@
                         <a asp-controller="Request" asp-action="RequestForm" class="btn btn-primary">Request Service</a>
   </div>
 </div>
+                </div>
 }
         </div>
     </div>

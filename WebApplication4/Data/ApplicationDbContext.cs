@@ -12,6 +12,7 @@ namespace WebApplication4.Data
         }
         public DbSet<ApplicationUser> appUsers { get; set; }
         public DbSet<Services>  services { get; set; }
+        public DbSet<ProviderForm> ProviderForms { get; set; }
     }
 }
 

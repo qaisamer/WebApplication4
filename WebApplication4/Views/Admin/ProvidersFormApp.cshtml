@@ -1,0 +1,23 @@
+﻿@model List<ProviderForm>
+@{
+
+}
+<div class="container m-1">
+    @foreach (var f in Model)
+    {
+        <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+               @f.Id
+            </div>
+            <div class="card-body">
+                <p class="card-text">Fist name : @f.FirstName </p>
+                <p class="card-text">Second name : @f.SecondName </p>
+                <p class="card-text">Email : @f.Email </p>
+                <p class="card-text">Phone number : @f.PhoneNumber </p>
+                <p class="card-text">Work Experience : @f.WorkExp </p>
+                <a asp-controller="UserMange" asp-action="Index" class="btn btn-primary">Approve</a>
+                <a asp-controller="" asp-action="Disapproved" asp-route-Id="@f.Id" class="btn btn-primary">Disapprove</a>
+            </div>
+        </div>
+    }
+ </div>
