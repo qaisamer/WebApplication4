@@ -3,13 +3,13 @@
     ViewData["Title"] = "Rolemanger";
 }
 
-<h1>Roles</h1>
 
-<partial name="_RoleForm" model=" new RoleViewModel()" />
+<div class="landing container">
+    <h1>Roles</h1>
+    <partial name="_RoleForm" model=" new RoleViewModel()" />
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             
@@ -22,10 +22,11 @@
             <td>@Role.Id</td>
             <td>@Role.Name</td>
         </tr>
-        
     }
 </tbody>
+       
  </table>
+ </div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

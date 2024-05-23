@@ -16,20 +16,17 @@ namespace WebApplication4.Controllers
             var f = _context.ProviderForms.ToList();
             return View(f);
         }
-        public IActionResult Approved() {
-            return RedirectToAction("Index", "UserMange");
-        }
+        [HttpGet]
         public IActionResult Disapproved( int id) {
-            if (id == null)
+            var f = _context.ProviderForms.FirstOrDefault(x => x.Id == id);
+            if (f == null)
             {
-                return RedirectToAction("ProvidersFormApp");
+                return NotFound();
+            
             }
-            else {
-                var f = _context.ProviderForms.FirstOrDefault(x => x.Id == id);
-                _context.ProviderForms.Remove(f);
-                _context.SaveChanges();
-                return RedirectToAction("ProvidersFormApp");
-                }
+           _context.ProviderForms.Remove(f);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(ProvidersFormApp));
         }
     }
 }
