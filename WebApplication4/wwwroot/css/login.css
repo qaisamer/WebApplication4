@@ -1,0 +1,19 @@
+﻿body {
+}
+.landing {
+    min-height: 100vh;
+    background-image: url("/assets/images/login-reg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.center {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    border-radius:10px;
+    width:400px;
+    height:500px;   
+
+}
