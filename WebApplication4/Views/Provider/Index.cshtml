@@ -1,0 +1,30 @@
+﻿@model List<CustomerReqForm>
+@{
+    ViewData["Title"] = "Requests";
+}
+<link href="~/css/services.css" rel="stylesheet" />
+
+<div class="landing">
+    <div class="service  d-flex text-light justify-content-center align-items-center mb-2">
+        <p class="text">Requests</p>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var r in Model)
+            {
+                <div class="col">
+                    <div class="card m-2" style="width: 20rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"> requests </h5>
+                            <p class="card-text"> Customer name : @r.FirstName </p>
+                            <p class="card-text"> Customer number : @r.PhoneNumber </p>
+                            <p class="card-text">  Service : @r.Service </p>
+                            <p class="card-text"> PaymentMethod : @r.PaymentMethod</p>
+                            <a asp-controller="Provider" asp-action="ProviderLocation" asp-route-Id="@r.Id" class="btn btn-primary">Accept</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

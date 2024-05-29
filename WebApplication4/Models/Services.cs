@@ -11,6 +11,8 @@ namespace WebApplication4.Models
         public string Description { get; set; } =string.Empty;
         [Required]
         public double Price { get; set; } 
+
+       
     }
 }
  
