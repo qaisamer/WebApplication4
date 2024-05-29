@@ -22,11 +22,13 @@ namespace WebApplication4.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            this.userManager = userManager;
         }
 
         /// <summary>
@@ -116,6 +118,21 @@ namespace WebApplication4.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    // Retrieve the logged-in user
+                    var user = await userManager.FindByEmailAsync(Input.Email);
+
+                    if (user != null)
+                    {
+                        // Check the user's roles and redirect accordingly
+                        if (await userManager.IsInRoleAsync(user, "Provider"))
+                        {
+                            return LocalRedirect(Url.Content("~/Provider/Index"));
+                        }
+                        else
+                        {
+                            return LocalRedirect(Url.Content("~/"));
+                        }
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

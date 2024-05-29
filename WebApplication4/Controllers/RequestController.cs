@@ -51,10 +51,5 @@ namespace WebApplication4.Controllers
 
             return Json(new { success = true });
         }
-        
-
-
-
-
     }
 }

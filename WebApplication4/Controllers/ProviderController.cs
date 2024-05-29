@@ -24,7 +24,6 @@ namespace WebApplication4.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult ProviderLocation(ProviderLocation providerLocation, int id) {
             if (providerLocation == null || !ModelState.IsValid || id == null)
@@ -32,15 +31,8 @@ namespace WebApplication4.Controllers
                 return BadRequest();
                 //new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest, "Invalid data.");
             }
-
             var customerLocation = _context.customerReqs.FirstOrDefault(x=>x.Id ==id);
-          
-        
-
-
-
             // Save data to the database
-
             var locationModel = new ProviderLocation
             {
                 Latitude = providerLocation.Latitude,
@@ -51,15 +43,15 @@ namespace WebApplication4.Controllers
             _context.SaveChanges();
             return Json(new { success = true,
                 customerLatitude = customerLocation.Latitude,
-                customerLongitude = customerLocation.Longitude
-
+                customerLongitude = customerLocation.Longitude,    
+                id = customerLocation.Id
             });
         }
-        public ActionResult DirectionsMap(double? customerLatitude, double? customerLongitude)
+        public ActionResult DirectionsMap(double? customerLatitude, double? customerLongitude,int? Id)
         {
             var providerLocation =  _context.providerLocations.OrderByDescending(m => m.SubmittedAt).FirstOrDefault();
+            int? id = Id;
 
-        
             if ( providerLocation == null)
             {
                 // Handle case where data is not found
@@ -69,7 +61,6 @@ namespace WebApplication4.Controllers
             ViewBag.CustomerLongitude = customerLongitude;
             ViewBag.ProviderLatitude = providerLocation.Latitude;
             ViewBag.ProviderLongitude = providerLocation.Longitude;
-
             return View();
         }
     }
