@@ -17,7 +17,9 @@ namespace WebApplication4.Controllers
         public IActionResult ProvidersFormApp()
         {
             var f = _context.ProviderForms.ToList();
+            //ViewBag.User = User.Identity.Name;
             return View(f);
+          
         }
         [HttpGet]
         public IActionResult Disapproved( int id) {
@@ -25,7 +27,6 @@ namespace WebApplication4.Controllers
             if (f == null)
             {
                 return NotFound();
-            
             }
            _context.ProviderForms.Remove(f);
             _context.SaveChanges();

@@ -15,6 +15,7 @@ namespace WebApplication4.Data
         public DbSet<ProviderForm> ProviderForms { get; set; }
         public DbSet<CustomerReqForm> customerReqs { get; set; }
         public DbSet<ProviderLocation>  providerLocations { get; set; }
+        public DbSet<Order> orders { get; set; }
     }
 }
 

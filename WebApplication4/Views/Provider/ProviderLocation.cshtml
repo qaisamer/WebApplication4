@@ -61,7 +61,8 @@
                     alert('Location saved successfully.');
                     window.location.href = '@Url.Action("DirectionsMap", "Provider")' +
                         '?customerLatitude=' + response.customerLatitude +
-                        '&customerLongitude=' + response.customerLongitude;
+                        '&customerLongitude=' + response.customerLongitude+
+                        '&id=' + response.id
                 },
                 error: function (xhr, status, error) {
                     alert('Error saving location: ' + error);
@@ -80,8 +81,8 @@
     </script>
 </head>
 <body>
-    <div id="map" style="height: 400px;"></div>
-    <button onclick="getUserLocation()">Get User Location</button>
-    <button onclick="saveLocation()">Save Location</button>
+    <div id="map" style="height: 400px;" class="m-1"></div>
+    <button class="btn btn-primary m-1" onclick="getUserLocation()">Get User Location</button>
+    <button  class="btn btn-primary m-1" onclick="saveLocation()">Save Location</button>
 </body>
 </html>

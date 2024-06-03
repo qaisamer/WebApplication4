@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Map with Directions</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         #map {
             height: 600px;
@@ -18,15 +19,19 @@
 </head>
 <body>
     <div class="container align-items-center">
-        <div  id="map">
+        <div  id="map" class="m-1">
         </div>
        
-        </div>
-        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-            <div class="card-header"></div>
+       
+        <div class="card text-white bg-primary m-3" style="max-width: 20rem;">
+            <div class="card-header"> directions-panel </div>
             <div class="card-body">
             <div id="directions-panel">
             </div>
+           
+    </div>
+    </div>
+        <a class="btn btn-primary m-1" asp-action="Finish" asp-controller="Provider" asp-route-id="@ViewBag.id"> Mission Done</a>
     </div>
     
 
@@ -35,6 +40,7 @@
         var CustomerLongitude = parseFloat('@ViewBag.CustomerLongitude');
         var ProviderLatitude = 32.55556;
         var ProviderLongitude = 35.85;
+        var id = ViewBag.id;
 
         console.log("Customer Latitude: " + CustomerLatitude, "Customer Longitude: " + CustomerLongitude, "Provider Latitude: " + ProviderLatitude, "Provider Longitude: " + ProviderLongitude);
 

@@ -1,0 +1,41 @@
+﻿@model List<Order>
+@{
+    ViewData["title"] = "Orders";
+}
+<link href="~/css/services.css" rel="stylesheet" />
+
+<div class="landing">
+    <div class="container">
+        <div class="service  d-flex text-light justify-content-center align-items-center mb-2">
+            <p class="text">Order History</p>
+        </div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">date/Time </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model)
+                    {
+                        <tr class="table-primary">
+                            <th scope="row">@s.User.FristName</th>
+                            <td>@s.Service</td>
+                            <td>@s.Description</td>
+                            <td>
+                              @s.SubmittedAt
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class=" d-flex text-light justify-content-center align-items-center">
+                <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Go back</a>
+            </div>
+        </div>
+    </div>
+</div>

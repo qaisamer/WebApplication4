@@ -21,6 +21,7 @@ namespace WebApplication4.Controllers
         public async Task<IActionResult> Index()
         {
             var roles = await userManager.Users.ToListAsync();
+           
            var user = roles.Select(user => new UsersViewModel()
             {
                 Id = user.Id,

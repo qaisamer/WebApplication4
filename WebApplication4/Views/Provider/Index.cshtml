@@ -20,6 +20,9 @@
                             <p class="card-text"> Customer number : @r.PhoneNumber </p>
                             <p class="card-text">  Service : @r.Service </p>
                             <p class="card-text"> PaymentMethod : @r.PaymentMethod</p>
+                            <p class="card-text">
+                                Description : @r.Description
+                            </p>
                             <a asp-controller="Provider" asp-action="ProviderLocation" asp-route-Id="@r.Id" class="btn btn-primary">Accept</a>
                         </div>
                     </div>

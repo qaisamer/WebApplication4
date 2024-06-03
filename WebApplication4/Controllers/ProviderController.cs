@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using WebApplication4.Data;
 using WebApplication4.Data.Migrations;
 using WebApplication4.Models;
@@ -43,25 +44,53 @@ namespace WebApplication4.Controllers
             _context.SaveChanges();
             return Json(new { success = true,
                 customerLatitude = customerLocation.Latitude,
-                customerLongitude = customerLocation.Longitude,    
+                customerLongitude = customerLocation.Longitude,
                 id = customerLocation.Id
             });
+          
         }
-        public ActionResult DirectionsMap(double? customerLatitude, double? customerLongitude,int? Id)
+        public ActionResult DirectionsMap(double? customerLatitude, double? customerLongitude,int id)
         {
             var providerLocation =  _context.providerLocations.OrderByDescending(m => m.SubmittedAt).FirstOrDefault();
-            int? id = Id;
 
             if ( providerLocation == null)
             {
                 // Handle case where data is not found
                 return RedirectToAction("NoDataFound");
             }
+            ViewBag.id = id;
             ViewBag.CustomerLatitude = customerLatitude;
             ViewBag.CustomerLongitude = customerLongitude;
             ViewBag.ProviderLatitude = providerLocation.Latitude;
             ViewBag.ProviderLongitude = providerLocation.Longitude;
             return View();
+        }
+        public ActionResult Finish(int id)
+        {
+
+
+            var req = _context.customerReqs.FirstOrDefault(x => x.Id == id);
+
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (req == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var order = new Order {
+                UserId=userId,
+                Service=req.Service,
+                Description=req.Description,
+                SubmittedAt =DateTime.Now
+                };
+                _context.orders.Add(order);
+                _context.SaveChanges();
+                _context.customerReqs.Remove(req);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+
         }
     }
 }

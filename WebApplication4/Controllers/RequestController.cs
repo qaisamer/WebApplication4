@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 using WebApplication4.Data;
 using WebApplication4.Models;
 
@@ -14,7 +15,6 @@ namespace WebApplication4.Controllers
         public RequestController(ApplicationDbContext context )
         {
             _context = context;
-                   
         }
         public IActionResult RequestForm()
         {
@@ -42,12 +42,21 @@ namespace WebApplication4.Controllers
                     PaymentMethod=userLocation.PaymentMethod,
                     PhoneNumber = userLocation.PhoneNumber,
                     Latitude = userLocation.Latitude,
-                    Longitude = userLocation.Longitude
+                    Longitude = userLocation.Longitude,
+                    Description = userLocation.Description
                 };
 
-                _context.customerReqs.Add(locationModel);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var order = new Order {
+            UserId = userId,
+            Service = userLocation.Service,
+            Description = userLocation.Description,
+                SubmittedAt = DateTime.Now
+            };
+                _context.orders.Add(order);
+            _context.SaveChanges();
+            _context.customerReqs.Add(locationModel);
                 _context.SaveChanges();
-        
 
             return Json(new { success = true });
         }
